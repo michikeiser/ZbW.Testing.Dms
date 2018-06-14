@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.Properties {
+namespace ZbW.Testing.Dms.Client.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

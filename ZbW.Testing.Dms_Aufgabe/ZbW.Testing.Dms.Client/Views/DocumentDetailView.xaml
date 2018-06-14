@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="ZbW.SoftwareTesting.DocumentManagementSystem.Client.Views.DocumentDetailView"
+﻿<UserControl x:Class="ZbW.Testing.Dms.Client.Views.DocumentDetailView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:viewModels="clr-namespace:ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels"
+             xmlns:viewModels="clr-namespace:ZbW.Testing.Dms.Client.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance viewModels:DocumentDetailViewModel}">
@@ -14,6 +14,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
@@ -39,9 +40,7 @@
         <TextBlock Grid.Row="2" Grid.Column="0"
                    Text="Valuta Datum"/>
         <DatePicker Grid.Row="2" Grid.Column="1"
-                    SelectedDate="{Binding ValutaDatum}"
-                    VerticalAlignment="Center"
-                    Margin="5, 0, 0, 0"/>
+                    SelectedDate="{Binding ValutaDatum}"/>
 
         <TextBlock Grid.Row="3" Grid.Column="0"
                    Text="Typ"/>
@@ -50,18 +49,29 @@
                   SelectedItem="{Binding SelectedTypItem}"/>
 
         <TextBlock Grid.Row="4" Grid.Column="0"
-                   Text="Erfassungsdatum"/>
+                   Text="Stichwörter"/>
         <TextBox Grid.Row="4" Grid.Column="1"
+                 Text="{Binding Stichwoerter}"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0"
+                   Text="Erfassungsdatum"/>
+        <TextBox Grid.Row="5" Grid.Column="1"
                  IsEnabled="False"
                  Text="{Binding Erfassungsdatum, StringFormat=dd.MM.yyyy HH:mm:ss}"/>
 
-        <TextBlock Grid.Row="5" Grid.Column="0"
+        <TextBlock Grid.Row="6" Grid.Column="0"
                    Text="Benutzer"/>
-        <TextBox Grid.Row="5" Grid.Column="1"
+        <TextBox Grid.Row="6" Grid.Column="1"
                  IsEnabled="False"
                  Text="{Binding Benutzer}"/>
 
-        <Button Grid.Row="7" Grid.Column="1"
+        <TextBlock Grid.Row="7" Grid.Column="0"
+                   Text="Datei anschliessend löschen"
+                   TextWrapping="Wrap"/>
+        <CheckBox Grid.Row="7" Grid.Column="1"
+                  IsChecked="{Binding IsRemoveFileEnabled}"/>
+
+        <Button Grid.Row="8" Grid.Column="1"
                 Content="Speichern"
                 Command="{Binding CmdSpeichern}"/>
 

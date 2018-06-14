@@ -1,4 +1,4 @@
-﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client
+﻿namespace ZbW.Testing.Dms.Client
 {
     using System.Windows;
 

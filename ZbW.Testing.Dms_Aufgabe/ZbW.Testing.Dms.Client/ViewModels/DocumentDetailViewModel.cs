@@ -1,20 +1,18 @@
-﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels
+﻿namespace ZbW.Testing.Dms.Client.ViewModels
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
 
     using Microsoft.Win32;
 
     using Prism.Commands;
     using Prism.Mvvm;
 
-    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.Repositories;
-    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.Services;
+    using ZbW.Testing.Dms.Client.Repositories;
 
     internal class DocumentDetailViewModel : BindableBase
     {
-        private readonly PersistanceService _persistanceService;
+        private readonly Action _navigateBack;
 
         private string _benutzer;
 
@@ -24,22 +22,38 @@
 
         private string _filePath;
 
+        private bool _isRemoveFileEnabled;
+
         private string _selectedTypItem;
+
+        private string _stichwoerter;
 
         private List<string> _typItems;
 
         private DateTime? _valutaDatum;
 
-        public DocumentDetailViewModel(string benutzer)
+        public DocumentDetailViewModel(string benutzer, Action navigateBack)
         {
+            _navigateBack = navigateBack;
             Benutzer = benutzer;
             Erfassungsdatum = DateTime.Now;
             TypItems = ComboBoxItems.Typ;
 
             CmdDurchsuchen = new DelegateCommand(OnCmdDurchsuchen);
             CmdSpeichern = new DelegateCommand(OnCmdSpeichern);
+        }
 
-            _persistanceService = new PersistanceService();
+        public string Stichwoerter
+        {
+            get
+            {
+                return _stichwoerter;
+            }
+
+            set
+            {
+                SetProperty(ref _stichwoerter, value);
+            }
         }
 
         public string Bezeichnung
@@ -124,6 +138,19 @@
             }
         }
 
+        public bool IsRemoveFileEnabled
+        {
+            get
+            {
+                return _isRemoveFileEnabled;
+            }
+
+            set
+            {
+                SetProperty(ref _isRemoveFileEnabled, value);
+            }
+        }
+
         private void OnCmdDurchsuchen()
         {
             var openFileDialog = new OpenFileDialog();
@@ -137,10 +164,9 @@
 
         private void OnCmdSpeichern()
         {
-            var newGuid = Guid.NewGuid();
-            var extension = Path.GetExtension(_filePath);
+            // TODO: Add your Code here
 
-            _persistanceService.CopyFileToRepository(_filePath, $"{newGuid}{extension}", ValutaDatum);
+            _navigateBack();
         }
     }
 }

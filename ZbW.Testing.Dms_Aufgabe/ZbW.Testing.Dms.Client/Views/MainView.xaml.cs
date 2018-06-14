@@ -1,8 +1,8 @@
-﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.Views
+﻿namespace ZbW.Testing.Dms.Client.Views
 {
     using System.Windows;
 
-    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels;
+    using ZbW.Testing.Dms.Client.ViewModels;
 
     /// <summary>
     /// Interaction logic for SearchView.xaml
