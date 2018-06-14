@@ -1,11 +1,11 @@
-﻿namespace ZbW.DocumentManagementSystem.Client.ViewModels
+﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels
 {
     using System.Collections.Generic;
 
     using Prism.Commands;
     using Prism.Mvvm;
 
-    using ZbW.DocumentManagementSystem.Client.Repositories;
+    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.Repositories;
 
     internal class SearchViewModel : BindableBase
     {

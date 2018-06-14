@@ -1,4 +1,4 @@
-﻿namespace ZbW.DocumentManagementSystem.Client.Repositories
+﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.Repositories
 {
     using System.Collections.Generic;
 

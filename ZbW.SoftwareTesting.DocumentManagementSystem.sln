@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZbW.DocumentManagementSystem.Client", "ZbW.DocumentManagementSystem.Client\ZbW.DocumentManagementSystem.Client.csproj", "{BAD666D8-64BF-467F-B2E9-6C1DC66D2BEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZbW.SoftwareTesting.DocumentManagementSystem.Client", "ZbW.SoftwareTesting.DocumentManagementSystem.Client\ZbW.SoftwareTesting.DocumentManagementSystem.Client.csproj", "{BAD666D8-64BF-467F-B2E9-6C1DC66D2BEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,11 +1,11 @@
-﻿namespace ZbW.DocumentManagementSystem.Client.ViewModels
+﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels
 {
     using System.Windows;
 
     using Prism.Commands;
     using Prism.Mvvm;
 
-    using ZbW.DocumentManagementSystem.Client.Views;
+    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.Views;
 
     internal class LoginViewModel : BindableBase
     {

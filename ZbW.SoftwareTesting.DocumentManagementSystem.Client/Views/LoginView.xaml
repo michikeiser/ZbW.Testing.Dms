@@ -1,14 +1,13 @@
-﻿<Window x:Class="ZbW.DocumentManagementSystem.Client.Views.LoginView"
+﻿<Window x:Class="ZbW.SoftwareTesting.DocumentManagementSystem.Client.Views.LoginView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ZbW.DocumentManagementSystem.Client.Views"
-        xmlns:viewModels="clr-namespace:ZbW.DocumentManagementSystem.Client.ViewModels"
+        xmlns:viewModels="clr-namespace:ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels"
         mc:Ignorable="d"
-        Title="Login" 
-        Height="150" 
-        Width="350" 
+        Title="Login"
+        Height="150"
+        Width="350"
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance viewModels:LoginViewModel}">
     <Grid>
@@ -25,7 +24,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Benutzername"/>
         <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Benutzername, UpdateSourceTrigger=PropertyChanged}"/>
 
@@ -34,9 +33,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Button Grid.Row="0" Grid.Column="0" Content="Login" Command="{Binding CmdLogin}"/>
-            <Button Grid.Row="0" Grid.Column="1" Content="Abbrechen"  Command="{Binding CmdAbbrechen}"/>
+            <Button Grid.Row="0" Grid.Column="1" Content="Abbrechen" Command="{Binding CmdAbbrechen}"/>
         </Grid>
     </Grid>
 </Window>

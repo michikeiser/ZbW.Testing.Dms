@@ -1,8 +1,8 @@
-﻿namespace ZbW.DocumentManagementSystem.Client.Views
+﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.Views
 {
     using System.Windows.Controls;
 
-    using ZbW.DocumentManagementSystem.Client.ViewModels;
+    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels;
 
     /// <summary>
     /// Interaction logic for NewDocumentView.xaml

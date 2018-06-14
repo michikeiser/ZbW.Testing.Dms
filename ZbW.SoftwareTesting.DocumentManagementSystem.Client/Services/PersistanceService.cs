@@ -1,4 +1,4 @@
-﻿namespace ZbW.DocumentManagementSystem.Client.Services
+﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.Services
 {
     using System;
     using System.Configuration;
@@ -13,7 +13,6 @@
             var path = Path.Combine(repoDir, valutaDatum.GetValueOrDefault().Year.ToString());
 
             Directory.CreateDirectory(path);
-
 
             File.Copy(sourceFilePath, Path.Combine(path, filename));
         }

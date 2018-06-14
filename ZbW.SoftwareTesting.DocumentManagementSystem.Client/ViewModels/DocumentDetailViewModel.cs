@@ -1,4 +1,4 @@
-﻿namespace ZbW.DocumentManagementSystem.Client.ViewModels
+﻿namespace ZbW.SoftwareTesting.DocumentManagementSystem.Client.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -9,11 +9,13 @@
     using Prism.Commands;
     using Prism.Mvvm;
 
-    using ZbW.DocumentManagementSystem.Client.Repositories;
-    using ZbW.DocumentManagementSystem.Client.Services;
+    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.Repositories;
+    using ZbW.SoftwareTesting.DocumentManagementSystem.Client.Services;
 
     internal class DocumentDetailViewModel : BindableBase
     {
+        private readonly PersistanceService _persistanceService;
+
         private string _benutzer;
 
         private string _bezeichnung;
@@ -22,11 +24,11 @@
 
         private string _filePath;
 
-        private readonly PersistanceService _persistanceService;
-
         private string _selectedTypItem;
 
         private List<string> _typItems;
+
+        private DateTime? _valutaDatum;
 
         public DocumentDetailViewModel(string benutzer)
         {
@@ -109,19 +111,6 @@
 
         public DelegateCommand CmdSpeichern { get; }
 
-        private void OnCmdDurchsuchen()
-        {
-            var openFileDialog = new OpenFileDialog();
-            var result = openFileDialog.ShowDialog();
-
-            if (result.GetValueOrDefault())
-            {
-                _filePath = openFileDialog.FileName;
-            }
-        }
-
-        private DateTime? _valutaDatum;
-
         public DateTime? ValutaDatum
         {
             get
@@ -132,6 +121,17 @@
             set
             {
                 SetProperty(ref _valutaDatum, value);
+            }
+        }
+
+        private void OnCmdDurchsuchen()
+        {
+            var openFileDialog = new OpenFileDialog();
+            var result = openFileDialog.ShowDialog();
+
+            if (result.GetValueOrDefault())
+            {
+                _filePath = openFileDialog.FileName;
             }
         }
 
