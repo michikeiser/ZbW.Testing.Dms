@@ -1,0 +1,51 @@
+﻿<Window x:Class="ZbW.DocumentManagementSystem.Client.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZbW.DocumentManagementSystem.Client.Views"
+        xmlns:viewModels="clr-namespace:ZbW.DocumentManagementSystem.Client.ViewModels"
+        mc:Ignorable="d"
+        Title="SearchView"
+        Height="450"
+        Width="800"
+        WindowState="Maximized"
+        d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="LightGray">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="0" Margin="5" ToolTip="Nach einem Dokument suchen" Command="{Binding CmdNavigateToSearch}">
+                    <Image Source="../Images/magnifying_glass.png"/>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="0" Margin="5" ToolTip="Neues Dokument hinzufügen" Command="{Binding CmdNavigateToDocumentDetail}">
+                    <Image Source="../Images/navigate_plus.png"/>
+                </Button>
+            </Grid>
+        </Border>
+
+        
+
+        <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding Content}" Margin="5"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <TextBlock Text="Angemeldet als: "/>
+            <TextBlock Text="{Binding Benutzer}" FontWeight="Bold"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
