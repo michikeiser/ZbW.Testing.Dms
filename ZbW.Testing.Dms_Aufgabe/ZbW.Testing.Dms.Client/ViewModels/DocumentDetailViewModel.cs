@@ -1,4 +1,8 @@
-﻿namespace ZbW.Testing.Dms.Client.ViewModels
+﻿using System.Windows;
+using ZbW.Testing.Dms.Client.Model;
+using ZbW.Testing.Dms.Client.Services;
+
+namespace ZbW.Testing.Dms.Client.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -162,11 +166,33 @@
             }
         }
 
+        public bool CanCmdSpeichern()
+        {
+            return !string.IsNullOrEmpty(Bezeichnung)
+                   && ValutaDatum.HasValue
+                   && !string.IsNullOrEmpty(SelectedTypItem);
+        }
+
         private void OnCmdSpeichern()
         {
-            // TODO: Add your Code here
+            if (!CanCmdSpeichern())
+            {
+                MessageBox.Show("Es müssen alle Pflichtfelder ausgefüllt werden!");
+                return;
+            }
 
-            _navigateBack();
+            var docService = new DocumentService();
+            var meta = new MetadataItem(this.Bezeichnung, ValutaDatum.Value, this.SelectedTypItem, this.Stichwoerter, this.Erfassungsdatum, this.Benutzer, this.IsRemoveFileEnabled);
+
+            if (docService.ProcessFile(this._filePath, meta))
+            {
+                _navigateBack();
+            }
+            else
+            {
+                // error
+                MessageBox.Show("Fehler!");
+            }
         }
     }
 }

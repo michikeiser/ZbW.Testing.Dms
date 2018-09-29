@@ -1,4 +1,7 @@
-﻿namespace ZbW.Testing.Dms.Client.Repositories
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Zbw.Testing.Dms.Client.UnitTests")]
+namespace ZbW.Testing.Dms.Client.Repositories
 {
     using System.Collections.Generic;
 
