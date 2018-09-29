@@ -11,18 +11,33 @@
     {
         private readonly LoginView _loginView;
 
+        private MainView _mainView;
         private string _benutzername;
+
+        public LoginViewModel()
+        {
+            this.CmdLogin = new DelegateCommand(OnCmdLogin, OnCanLogin);
+            this.CmdAbbrechen = new DelegateCommand(OnCmdAbbrechen);
+        }
 
         public LoginViewModel(LoginView loginView)
         {
             _loginView = loginView;
-            CmdLogin = new DelegateCommand(OnCmdLogin, OnCanLogin);
-            CmdAbbrechen = new DelegateCommand(OnCmdAbbrechen);
+            this.CmdLogin = new DelegateCommand(OnCmdLogin, OnCanLogin);
+            this.CmdAbbrechen = new DelegateCommand(OnCmdAbbrechen);
         }
 
         public DelegateCommand CmdAbbrechen { get; }
 
         public DelegateCommand CmdLogin { get; }
+
+        public MainView MainView
+        {
+            get
+            {
+                return _mainView;
+            }
+        }
 
         public string Benutzername
         {
@@ -54,14 +69,21 @@
         {
             if (string.IsNullOrEmpty(Benutzername))
             {
-                MessageBox.Show("Bitte tragen Sie einen Benutzernamen ein...");
+                if (_loginView != null)
+                {
+                    MessageBox.Show("Bitte tragen Sie einen Benutzernamen ein...");
+                }
                 return;
             }
 
-            var searchView = new MainView(Benutzername);
-            searchView.Show();
+            this._mainView = new MainView(Benutzername);
 
-            _loginView.Close();
+
+            if (_loginView != null)
+            {
+                this._mainView.Show();
+                _loginView.Close();
+            }
         }
     }
 }
