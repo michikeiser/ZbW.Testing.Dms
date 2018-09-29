@@ -56,6 +56,7 @@ namespace ZbW.Testing.Dms.Client.UnitTests.ViewModels {
 
             // assert
             Assert.IsInstanceOfType(vm.Content, typeof(DocumentDetailView));
+            Assert.IsTrue(vm.DocumentDetailViewActive);
         }
 
         [TestMethod]
@@ -67,6 +68,7 @@ namespace ZbW.Testing.Dms.Client.UnitTests.ViewModels {
 
             // assert
             Assert.IsInstanceOfType(vm.Content, typeof(SearchView));
+            Assert.IsTrue(vm.SearchViewActive);
         }
     }
 }

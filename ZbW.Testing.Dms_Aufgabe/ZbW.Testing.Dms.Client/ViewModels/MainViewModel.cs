@@ -16,6 +16,8 @@ namespace ZbW.Testing.Dms.Client.ViewModels
         private string _benutzer;
 
         private UserControl _content;
+        private bool _searchViewActive;
+        private bool _documentDetailViewActive;
 
         public MainViewModel(string benutzername)
         {
@@ -50,6 +52,26 @@ namespace ZbW.Testing.Dms.Client.ViewModels
             }
         }
 
+        public bool SearchViewActive {
+            get {
+                return _searchViewActive;
+            }
+
+            set {
+                SetProperty(ref _searchViewActive, value);
+            }
+        }
+
+        public bool DocumentDetailViewActive {
+            get {
+                return _documentDetailViewActive;
+            }
+
+            set {
+                SetProperty(ref _documentDetailViewActive, value);
+            }
+        }
+
         public DelegateCommand CmdNavigateToSearch { get; }
 
         public DelegateCommand CmdNavigateToDocumentDetail { get; }
@@ -62,11 +84,15 @@ namespace ZbW.Testing.Dms.Client.ViewModels
         private void OnCmdNavigateToDocumentDetail()
         {
             Content = new DocumentDetailView(Benutzer, NavigateToSearch);
+            this.DocumentDetailViewActive = true;
+            this.SearchViewActive = false;
         }
 
         private void NavigateToSearch()
         {
             Content = new SearchView();
+            this.SearchViewActive = true;
+            this.DocumentDetailViewActive = false;
         }
     }
 }

@@ -10,6 +10,11 @@
         Width="800"
         WindowState="Maximized"
         d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -23,14 +28,17 @@
         <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="LightGray">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50" />
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+                <Rectangle Grid.Row="0" Fill="White" Visibility="{Binding SearchViewActive, Converter={StaticResource BooleanToVisibilityConverter}}"></Rectangle>
                 <Button Grid.Row="0" Grid.Column="0" Margin="5" ToolTip="Nach einem Dokument suchen" Command="{Binding CmdNavigateToSearch}">
                     <Image Source="../Images/magnifying_glass.png"/>
                 </Button>
+
+                <Rectangle Grid.Row="1" Fill="White" Visibility="{Binding DocumentDetailViewActive, Converter={StaticResource BooleanToVisibilityConverter}}"></Rectangle>
                 <Button Grid.Row="1" Grid.Column="0" Margin="5" ToolTip="Neues Dokument hinzufügen" Command="{Binding CmdNavigateToDocumentDetail}">
                     <Image Source="../Images/navigate_plus.png"/>
                 </Button>
