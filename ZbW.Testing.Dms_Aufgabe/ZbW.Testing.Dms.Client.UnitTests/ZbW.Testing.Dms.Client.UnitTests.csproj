@@ -56,20 +56,24 @@
       <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\MetadataItemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ComboBoxItemsTest.cs" />
+    <Compile Include="Services\DocumentServiceTest.cs" />
     <Compile Include="ViewModels\MainViewModelTest.cs" />
     <Compile Include="ViewModels\LoginViewModelTest.cs" />
     <Compile Include="ViewModels\DocumentDetailViewModelTest.cs" />
     <Compile Include="ViewModels\SearchViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
