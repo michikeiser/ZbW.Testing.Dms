@@ -3,10 +3,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 
-[assembly: InternalsVisibleTo("Zbw.Testing.Dms.Client.UnitTests")]
 namespace ZbW.Testing.Dms.Client.Model
 {
-    internal class MetadataItem
+    public class MetadataItem
     {
         public string Description;
         public DateTime ValutaDateTime;
@@ -17,6 +16,8 @@ namespace ZbW.Testing.Dms.Client.Model
 
         [XmlIgnore]
         public bool DeleteFile;
+
+        public MetadataItem() { }
 
         public MetadataItem(string description, DateTime valutaDateTime, string type, string tags,
             DateTime creationDateTime, string creator, bool deleteFile)

@@ -8,9 +8,10 @@ namespace ZbW.Testing.Dms.Client.UnitTests.Model {
         [TestMethod]
         public void MetadataItem_Init_HasData() {
             // arrange
-            // act
             var meta = new MetadataItem("desc", DateTime.Today, "type", "tags", DateTime.Today, "creator", true);
 
+            // act
+            
             // assert
             Assert.AreEqual(meta.Description, "desc");
             Assert.AreEqual(meta.ValutaDateTime, DateTime.Today);
