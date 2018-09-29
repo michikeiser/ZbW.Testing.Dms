@@ -1,4 +1,8 @@
-﻿namespace ZbW.Testing.Dms.Client.ViewModels
+﻿
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Zbw.Testing.Dms.Client.UnitTests")]
+namespace ZbW.Testing.Dms.Client.ViewModels
 {
     using System.Windows.Controls;
 
