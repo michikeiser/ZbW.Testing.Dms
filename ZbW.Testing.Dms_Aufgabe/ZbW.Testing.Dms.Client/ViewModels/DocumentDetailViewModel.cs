@@ -1,4 +1,6 @@
-﻿namespace ZbW.Testing.Dms.Client.ViewModels
+﻿using System.Windows;
+
+namespace ZbW.Testing.Dms.Client.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -162,9 +164,20 @@
             }
         }
 
+        public bool CanCmdSpeichern()
+        {
+            return !string.IsNullOrEmpty(Bezeichnung)
+                   && ValutaDatum != null
+                   && !string.IsNullOrEmpty(SelectedTypItem);
+        }
+
         private void OnCmdSpeichern()
         {
-            // TODO: Add your Code here
+            if (!CanCmdSpeichern())
+            {
+                MessageBox.Show("Es müssen alle Pflichtfelder ausgefüllt werden!");
+                return;
+            }
 
             _navigateBack();
         }
